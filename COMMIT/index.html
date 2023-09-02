@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Ejemplo</title>
+    <link rel="stylesheet" href="styles.css">
+    <div id="agradecimiento" style="display: none;">
+    <p>¡Gracias por enviar el formulario!</p>
+</div>
+</head>
+<body>
+    <div id="agradecimiento" style="display: none;">
+        <p>¡Gracias por enviar el formulario!</p>
+    </div>
+    
+
+    <h1>Formulario de Contacto</h1>
+    <p>Por favor, completa el siguiente formulario para ponerte en contacto con nosotros:</p>
+    
+    <form action="procesar_formulario.php" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo" name="correo" required>
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+        <input type="submit" value="Enviar">
+    </form>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Obtener el formulario y el elemento de agradecimiento
+            const formulario = document.querySelector("form");
+            const agradecimiento = document.getElementById("agradecimiento");
+    
+            // Agregar un evento de escucha al formulario para manejar el envío
+            formulario.addEventListener("submit", function(event) {
+                // Detener el envío del formulario predeterminado
+                event.preventDefault();
+    
+                // Ocultar el formulario
+                formulario.style.display = "none";
+    
+                // Mostrar el mensaje de agradecimiento
+                agradecimiento.style.display = "block";
+            });
+        });
+    </script>
+    
+</body>
+</html>
